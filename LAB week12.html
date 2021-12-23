@@ -1,0 +1,92 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+        <meta charset="UTF-8"/> 
+        <title></title> 
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> 
+    </head> 
+    <script> 
+      
+ 
+        function add(){ 
+            var numberFir = parseInt(document.getElementById('numFirst').value); 
+            var numberSec = parseInt(document.getElementById('numSecond').value); 
+            var total = numberFir+numberSec; 
+            document.getElementById('totalid').textContent = total; 
+        } 
+ 
+        function multi(){ 
+            var numberFir = parseInt(document.getElementById('numFirst').value); 
+            var numberSec = parseInt(document.getElementById('numSecond').value); 
+            var total = numberFir*numberSec; 
+            document.getElementById('totalid').textContent = total; 
+        } 
+ 
+        function qu(){ 
+            var numberFir = parseInt(document.getElementById('numFirst').value); 
+            var numberSec = parseInt(document.getElementById('numSecond').value); 
+            var total = numberFir/numberSec; 
+            document.getElementById('totalid').textContent = total; 
+        } 
+ 
+        function sub(){ 
+            var numberFir = parseInt(document.getElementById('numFirst').value); 
+            var numberSec = parseInt(document.getElementById('numSecond').value); 
+            var total = numberFir-numberSec; 
+            document.getElementById('totalid').textContent = total; 
+        } 
+     
+ $("#sel").on("change", function() { 
+  var selectedText = $(this).find("option:selected").text(); 
+console.log(selectedText); 
+  if (selectedText == "+") { 
+ document.getElementById("btn").innerText = add; 
+} 
+ });  
+    </script> 
+ 
+    <body> 
+        <p>NUMBER1<input type="text" id='numFirst'></P> 
+        <P>NUMBER2<input type="text" id='numSecond'></p> 
+ 
+        <p> 
+     <form> 
+         <select name="rating" id="sel"> 
+          <option value="+">+</option> 
+          <option value="-">-</option> 
+          <option value="*">*</option> 
+          <option value="/">/</option> 
+            </select> 
+        </form>  
+     </p> 
+     <p></p> 
+ 
+ 
+        <p><button id="btn" onclick="add()">add</button>=<em id='totalid'></em></p> 
+     
+    </body> 
+<script> 
+ $("#sel").on("change", function() { 
+  document.getElementById("totalid").textContent = ""; 
+  var selectedText = $(this).find("option:selected").text(); 
+console.log(selectedText); 
+  if (selectedText == "+") { 
+ document.getElementById("btn").innerText = "add"; 
+ document.getElementById("btn").onclick = add; 
+  
+} 
+  if (selectedText == "-") { 
+ document.getElementById("btn").innerText = "subtract"; 
+ document.getElementById("btn").onclick = sub; 
+} 
+  if (selectedText == "*") { 
+ document.getElementById("btn").innerText = "multiply"; 
+ document.getElementById("btn").onclick = multi; 
+} 
+  if (selectedText == "/") { 
+ document.getElementById("btn").innerText = "divide"; 
+ document.getElementById("btn").onclick = qu; 
+} 
+ });  
+</script> 
+</html>
